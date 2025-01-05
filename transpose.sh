@@ -2,7 +2,7 @@
 
 # Function to transpose the content of a file
 transpose_file() {
-    awk '
+    awk 
     {
         # Process each row and store fields in a matrix
         for (i = 1; i <= NF; i++) {
@@ -20,7 +20,7 @@ transpose_file() {
             }
         }
     }
-    ' OFS=' ' "$1"
+    ' OFS='  "$1"
 }
 
 # Input file
