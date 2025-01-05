@@ -6,7 +6,7 @@ transpose_file() {
     {
         # Process each row and store fields in a matrix
         for (i = 1; i <= NF; i++) {
-            matrix[i, NR] = $i
+            matrix i, NR  = $i
         }
         # Track the number of fields and rows
         if (NF > maxCols) maxCols = NF
