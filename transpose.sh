@@ -1,27 +1,26 @@
 #!/bin/bash
 
-# Check if file exists
-if [ ! -f "file.txt" ]; then
-    echo "file.txt not found!"
-    exit 1
-fi
-
-# Transpose the file using awk
-awk 
-{
-    for (i = 1; i <= NF; i++) {
-        matrix[i, NR] = $i
-    }
-    if (NF > maxCols) {
-        maxCols = NF
-    }
-    maxRows = NR
-}
-END {
-    for (i = 1; i <= maxCols; i++) {
-        for (j = 1; j <= maxRows; j++) {
-            printf "%s%s", matrix[i, j], (j == maxRows ? ORS : OFS)
+# Transpose a file
+transpose_file() {
+    awk '
+    {
+        for (i = 1; i <= NF; i++) {
+            a[i, NR] = $i
         }
     }
+    NF > maxNF { maxNF = NF }
+    END {
+        for (i = 1; i <= maxNF; i++) {
+            for (j = 1; j <= NR; j++) {
+                printf "%s%s", a[i, j], (j == NR ? ORS : OFS)
+            }
+        }
+    }
+    ' OFS=' ' "$1"
+}
 
-' OFS='  file.txt
+# Input file
+input_file="file.txt"
+
+# Transpose and output to console
+transpose_file "$input_file"
