@@ -4,15 +4,19 @@
 transpose_file() {
     awk '
     {
+        # Process each row and store fields in a matrix
         for (i = 1; i <= NF; i++) {
-            a[i, NR] = $i
+            matrix[i, NR] = $i
         }
+        # Track the number of fields and rows
+        if (NF > maxCols) maxCols = NF
+        maxRows = NR
     }
-    NF > maxNF { maxNF = NF }  # Track maximum number of fields in a row
     END {
-        for (i = 1; i <= maxNF; i++) {  # Loop through columns
-            for (j = 1; j <= NR; j++) {  # Loop through rows
-                printf "%s%s", a[i, j], (j == NR ? ORS : OFS)
+        # Iterate over the matrix in a transposed manner
+        for (i = 1; i <= maxCols; i++) {
+            for (j = 1; j <= maxRows; j++) {
+                printf "%s%s", matrix[i, j], (j == maxRows ? ORS : OFS)
             }
         }
     }
