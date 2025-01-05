@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Write a script that reads a text file and counts the occurrences of each word, 
+#displaying the top 5 most frequent words along with their counts.
+
 # Check if the file is provided as an argument
 if [ $# -ne 1 ]; then
     echo "Usage: $0 <filename>"
