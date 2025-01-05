@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Input and output file names
-input_file="input.txt"
-output_file="output.txt"
+input_file=$1
+output_file=$2
 
 # Check if input file exists
 if [[ ! -f $input_file ]]; then
