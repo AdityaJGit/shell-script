@@ -7,7 +7,7 @@ if [ ! -f "file.txt" ]; then
 fi
 
 # Transpose the file using awk
-awk '
+awk 
 {
     for (i = 1; i <= NF; i++) {
         matrix[i, NR] = $i
@@ -23,5 +23,5 @@ END {
             printf "%s%s", matrix[i, j], (j == maxRows ? ORS : OFS)
         }
     }
-}
-' OFS=' ' file.txt
+
+' OFS='  file.txt
