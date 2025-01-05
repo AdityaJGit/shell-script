@@ -4,7 +4,8 @@
 transpose_file() {
     awk 
     {
-        for (i = 1; i <= NF; i++) {
+        for (i = 1; i <= NF; i++) 
+        {
             a[i, NR] = $i
         }
     }
@@ -20,7 +21,7 @@ transpose_file() {
 
 
 # Input file
-input_file= file.txt
+input_file= $(file.txt)
 
 # Transpose and output to console
 transpose_file $input_file
