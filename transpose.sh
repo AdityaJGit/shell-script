@@ -17,7 +17,7 @@ transpose_file() {
         }
     }
     ' OFS='  $1
-}
+
 
 # Input file
 input_file= file.txt
