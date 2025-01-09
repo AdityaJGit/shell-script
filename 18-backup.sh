@@ -29,6 +29,7 @@ USAGE(){
 
     echo -e "$R USAGE:: $N sh 18-backup.sh <SOURCE_DIR> <DEST_DIR> <DAYS(Optional)>"
 }
+
 if [$# -lt 2 ]
 then
 
