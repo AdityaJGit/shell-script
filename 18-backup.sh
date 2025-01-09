@@ -60,6 +60,7 @@ echo "Files are $FILES"
 if [ -n "$FILES" ]
 then
     echo "Files are: $FILES"
+    ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
 else
     echo "No Files found older than $DAYS"
 fi
